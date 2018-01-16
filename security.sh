@@ -176,5 +176,5 @@ for suffix in mp3 txt wav wma aac mp4 mov avi gif jpg png bmp img exe msi bat sh
 do
   sudo find /home -name *.$suffix
   
-sudo update-alternatives --config x-www-browser
+  sudo update-alternatives --config x-www-browser
 done
