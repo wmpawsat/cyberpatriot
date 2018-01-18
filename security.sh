@@ -98,3 +98,4 @@ sudo apt-get purge chkrootkit -y
 echo "Enable check for updates every day in the GUI"
 
 #!/bin/bash
+done
