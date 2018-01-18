@@ -89,4 +89,9 @@ do
 sudo update-alternatives --config x-www-browser
 sudo apt-get update && sudo apt-get install firefox
 
+#RootKit Scan & Removal
+sudo apt-get install chkrootkit
+sudo chkroot
+sudo apt-get purge chkrootkit 
+
 #!/bin/bash
