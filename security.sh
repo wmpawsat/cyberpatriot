@@ -92,6 +92,9 @@ sudo apt-get update && sudo apt-get install firefox
 #RootKit Scan & Removal
 sudo apt-get install chkrootkit
 sudo chkroot
-sudo apt-get purge chkrootkit 
+sudo apt-get purge chkrootkit -y 
+
+#
+echo "Enable check for updates every day in the GUI"
 
 #!/bin/bash
