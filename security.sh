@@ -9,6 +9,7 @@ then
 fi
 
 # Firewall
+sudo apt-get install -y ufw
 sudo ufw enable
 
 # Updates
@@ -80,11 +81,9 @@ sudo apt-get -y purge hydra*
 sudo apt-get -y purge john*
 sudo apt-get -y purge nikto*
 sudo apt-get -y purge netcat*
+sudo apt-get -y purge transmisson*
+sudo apt-get -y purge wireshark*
 
-# Media Files
-for suffix in mp3 txt wav wma aac mp4 mov avi gif jpg png bmp img exe msi bat sh
-do
-  sudo find /home -name *.$suffix
 #Defult Browser & Update
 sudo update-alternatives --config x-www-browser
 sudo apt-get update && sudo apt-get install firefox
@@ -94,8 +93,24 @@ sudo apt-get install chkrootkit
 sudo chkroot
 sudo apt-get purge chkrootkit -y 
 
-#
+# Fork addons
 echo "Enable check for updates every day in the GUI"
+sudo apt-get install i3 
+sudo apt-get remove gnome-mahjongg gnome-mines gnome-sudoku account-plugin-facebook account-plugin-flickr account-plugin-jabber account-plugin-salut account-plugin-twitter account-plugin-windows-live account-plugin-yahoo
+
+# Kernel updating
+echo -n Would you like to update kernel?Version $(uname -r) Latest $(apt-cache search linux-image) [Y/n]
+read option
+if [[ $option =~ ^[Yy]$ ]]
+then
+sudo apt-get install linux-generic
+else 
+fi
+# Media removal 
+echo "This will print all media to file media.txt"
+echo $(ls -R *.mp3 *.mp4 *.png *.jpeg *.jpg *.wav *.flac *.mov)
+ls -R *.mp3 *.mp4 *.png *.jpeg *.jpg *.wav *.flac *.mov > ./media.txt
+
 
 #!/bin/bash
 done
