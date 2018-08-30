@@ -110,7 +110,8 @@ fi
 echo "This will print all media to file media.txt"
 echo $(ls -R *.mp3 *.mp4 *.png *.jpeg *.jpg *.wav *.flac *.mov)
 ls -R *.mp3 *.mp4 *.png *.jpeg *.jpg *.wav *.flac *.mov > ./media.txt
-
+# Packge listing 
+sudo dpkg -l > ./packages
 
 #!/bin/bash
 done
