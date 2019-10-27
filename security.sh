@@ -13,8 +13,8 @@ sudo apt-get install -y ufw
 sudo ufw enable
 
 # Updates
-sudo apt-get -y upgrade
-sudo apt-get -y update
+#sudo apt-get -y upgrade
+#sudo apt-get -y update
 
 # Lock Out Root User
 sudo passwd -l root
@@ -95,23 +95,16 @@ sudo apt-get purge chkrootkit -y
 
 # Fork addons
 echo "Enable check for updates every day in the GUI"
-sudo apt-get install i3 
+sudo apt-get install i3 vim 
 sudo apt-get remove gnome-mahjongg gnome-mines gnome-sudoku account-plugin-facebook account-plugin-flickr account-plugin-jabber account-plugin-salut account-plugin-twitter account-plugin-windows-live account-plugin-yahoo
 
-# Kernel updating
-echo -n Would you like to update kernel?Version $(uname -r) Latest $(apt-cache search linux-image) [Y/n]
-read option
-if [[ $option =~ ^[Yy]$ ]]
-then
-sudo apt-get install linux-generic
-else 
-fi
+
 # Media removal 
 echo "This will print all media to file media.txt"
 echo $(ls -R *.mp3 *.mp4 *.png *.jpeg *.jpg *.wav *.flac *.mov)
-ls -R *.mp3 *.mp4 *.png *.jpeg *.jpg *.wav *.flac *.mov > ./media.txt
+ls -R *.mp3 *.mp4 *.png *.jpeg *.jpg *.wav *.flac *.mov > /home/`whoami`/media.txt
 # Packge listing 
-sudo dpkg -l > ./packages
+sudo dpkg -l > /home/`whoami`/packages
 
 #!/bin/bash
 done
